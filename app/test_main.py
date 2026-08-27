@@ -64,7 +64,22 @@ def test_should_convert_cat_and_dog_age_to_human_age(
             -1,
             ValueError,
             id="should raise ValueError for negative ages"
-        )
+        ),
+        pytest.param(
+            "cat",
+            15,
+            TypeError,
+            id="should return error when input is str type"),
+        pytest.param(
+            15,
+            None,
+            TypeError,
+            id="should return error when input is None"),
+        pytest.param(
+            1.5,
+            1.5,
+            TypeError,
+            id="should return error when input is float type")
     ]
 )
 def test_should_raise_exception_for_invalid_input(
