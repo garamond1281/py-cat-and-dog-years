@@ -3,7 +3,7 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
         raise ValueError
     if not isinstance(cat_age, int) or not isinstance(dog_age, int):
         raise TypeError
-    
+
     def convert_to_human(age: int, step: int) -> int:
         if age < 15:
             return 0
