@@ -54,3 +54,23 @@ def test_should_convert_cat_and_dog_age_to_human_age(
         expected: list[int] | Exception
 ) -> None:
     assert get_human_age(cat_age, dog_age) == expected
+
+
+@pytest.mark.parametrize(
+    "cat_age, dog_age, expected_exception",
+    [
+        pytest.param(
+            -1,
+            -1,
+            ValueError,
+            id="should raise ValueError for negative ages"
+        )
+    ]
+)
+def test_should_raise_exception_for_invalid_input(
+    cat_age: int,
+    dog_age: int,
+    expected_exception: type[Exception]
+) -> None:
+    with pytest.raises(expected_exception):
+        get_human_age(cat_age, dog_age)
